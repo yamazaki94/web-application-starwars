@@ -1,0 +1,59 @@
+<div class="container" *ngIf="planet != null">
+  <table>
+    <tbody>
+      <tr>
+        <td class="text-bold">Name</td>
+        <td>{{planet.name}}</td>
+        <td class="text-bold">Climate</td>
+        <td>{{planet.climate}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Diameter</td>
+        <td>{{planet.diameter}}</td>
+        <td class="text-bold">Gravity</td>
+        <td>{{planet.gravity}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Orbital Period</td>
+        <td>{{planet.orbital_period}}</td>
+        <td class="text-bold">Rotation Period</td>
+        <td>{{planet.rotation_period}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Population</td>
+        <td>{{planet.population}}</td>
+        <td class="text-bold">Surface Water</td>
+        <td>{{planet.surface_water}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Terrain</td>
+        <td>{{planet.terrain}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Films</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="planet.films?.length !== 0">
+            <span *ngFor="let film of planet.films">{{film.title}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="planet.films === null">
+            <span>No Films Found!</span>
+          </div>
+        </td>
+        <td class="text-bold">Residents</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="planet.residents?.length !== 0">
+            <span *ngFor="let resident of planet.residents">{{resident.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="planet.residents === null">
+            <span>No Residents Found!</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="planet === null">
+  <p>Loading...</p>
+</div>

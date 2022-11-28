@@ -1,0 +1,27 @@
+<div class="container" *ngIf="vehicleList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of vehicleList.results">
+        <td>{{person.name}}</td>
+        <td>{{person.manufacturer}}</td>
+        <td>{{person.model}}</td>
+        <td><a [routerLink]="person.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="vehicleList === null">
+  <p>Loading...</p>
+</div>
+<div class="container" *ngIf="vehicleList !== null &&vehicleList?.results === null">
+  <p>No Results Found!</p>
+</div>

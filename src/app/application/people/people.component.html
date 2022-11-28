@@ -1,0 +1,27 @@
+<div class="container" *ngIf="peopleList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Home World</th>
+        <th>Date of Birth</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of peopleList.results">
+        <td>{{person?.name}}</td>
+        <td>{{person?.homeworld}}</td>
+        <td>{{person?.birth_year}}</td>
+        <td><a [routerLink]="person.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="peopleList === null">
+  <p>Loading...</p>
+</div>
+<div class="container" *ngIf="peopleList !== null &&peopleList?.results === null">
+  <p>No Results Found!</p>
+</div>

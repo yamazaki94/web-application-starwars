@@ -1,0 +1,29 @@
+<div class="container" *ngIf="starShipList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Manufacturer</th>
+        <th>Length</th>
+        <th>Starship Class</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of starShipList.results">
+        <td>{{person.name}}</td>
+        <td>{{person.manufacturer}}</td>
+        <td>{{person.length}}</td>
+        <td>{{person.starship_class}}</td>
+        <td><a [routerLink]="person.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="starShipList === null">
+  <p>Loading...</p>
+</div>
+<div class="container" *ngIf="starShipList !== null &&starShipList?.results === null">
+  <p>No Results Found!</p>
+</div>

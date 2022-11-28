@@ -1,0 +1,29 @@
+<div class="container" *ngIf="filmList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Director</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of filmList.results">
+        <td>{{person?.title}}</td>
+        <td>{{person?.release_date}}</td>
+        <td>{{person?.director}}</td>
+        <td><a [routerLink]="person.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="filmList === null">
+  <p>Loading...</p>
+</div>
+
+<div class="container" *ngIf="filmList !== null && filmList?.results === null">
+  <p>No Results Found!</p>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="topnav">
+  <div *ngIf="searchResult.length !== 0">
+    <a *ngFor="let search of searchResult" (click)="onSearchInitiate(search)">{{search.searchString}}</a>
+  </div>
+  <div class="search-container">
+  <form>
+    <input type="text" placeholder="Search.." [(ngModel)]="searchString" name="search">
+    <button (click)="onSearch(null, null, true)" type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  </div>
+</div>

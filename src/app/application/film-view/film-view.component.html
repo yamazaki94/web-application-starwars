@@ -1,0 +1,73 @@
+<div class="container" *ngIf="film != null">
+  <table>
+    <tbody>
+      <tr>
+        <td class="text-bold">Title</td>
+        <td>{{film.title}}</td>
+        <td class="text-bold">Director</td>
+        <td>{{film.director}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Opening Crawl</td>
+        <td colspan="3">{{film.opening_crawl}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Episode Id</td>
+        <td>{{film.episode_id}}</td>
+        <td class="text-bold">Producer</td>
+        <td>{{film.producer}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Planets</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="film.planets?.length !== 0">
+            <span *ngFor="let planet of film.planets">{{planet.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="film.planets === null">
+            <span>No Planets Found!</span>
+          </div>
+        </td>
+        <td class="text-bold">Species</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="film.species?.length !== 0">
+            <span *ngFor="let specie of film.species">{{specie.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="film.species === null">
+            <span>No Species Found!</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bold">Starships</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="film.starships?.length !== 0">
+            <span *ngFor="let starship of film.starships">{{starship.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="film.starships === null">
+            <span>No starships Found!</span>
+          </div>
+        </td>
+        <td class="text-bold">Vehicles</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="film.vehicles?.length !== 0">
+            <span *ngFor="let vehicle of film.vehicles">{{vehicle.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="film.vehicles === null">
+            <span>No Vehicles Found!</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bold">Release Date</td>
+        <td>{{film.release_date}}</td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="film === null">
+  <p>Loading...</p>
+</div>

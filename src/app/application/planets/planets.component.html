@@ -1,0 +1,29 @@
+<div class="container" *ngIf="planetsList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Population</th>
+        <th>Terrain</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planet of planetsList.results">
+        <td>{{planet?.name}}</td>
+        <td>{{planet?.population}}</td>
+        <td>{{planet?.terrain}}</td>
+        <td><a [routerLink]="planet.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="planetsList === null">
+  <p>Loading...</p>
+</div>
+
+<div class="container" *ngIf="planetsList !== null && planetsList?.results === null">
+  <p>No Results Found!</p>
+</div>
+

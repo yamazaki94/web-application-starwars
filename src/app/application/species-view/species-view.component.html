@@ -1,0 +1,61 @@
+<div class="container" *ngIf="specie != null">
+  <table>
+    <tbody>
+      <tr>
+        <td class="text-bold">Name</td>
+        <td>{{specie.name}}</td>
+        <td class="text-bold">AverageHeight</td>
+        <td>{{specie.average_height}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Average Lifespan</td>
+        <td>{{specie.average_lifespan}}</td>
+        <td class="text-bold">Classification</td>
+        <td>{{specie.classification}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Designation</td>
+        <td>{{specie.designation}}</td>
+        <td class="text-bold">Eye Colors</td>
+        <td>{{specie.eye_colors}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Hair Colors</td>
+        <td>{{specie.hair_colors}}</td>
+        <td class="text-bold">Home World</td>
+        <td>{{specie.homeworld === null ? 'Unknown' : specie.homeworld}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Language</td>
+        <td>{{specie.language}}</td>
+        <td class="text-bold">Skin Colors</td>
+        <td>{{specie.skin_colors}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Films</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="specie.films?.length !== 0">
+            <span *ngFor="let film of specie.films">{{film.title}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="specie.films === null">
+            <span>No Films Found!</span>
+          </div>
+        </td>
+        <td class="text-bold">People</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="specie.people?.length !== 0">
+            <span *ngFor="let person of specie.people">{{person.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="specie.people === null">
+            <span>No People Found!</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="specie === null">
+  <p>Loading...</p>
+</div>

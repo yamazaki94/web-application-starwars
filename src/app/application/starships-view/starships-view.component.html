@@ -1,0 +1,71 @@
+<div class="container" *ngIf="starShip != null">
+  <table>
+    <tbody>
+      <tr>
+        <td class="text-bold">Name</td>
+        <td>{{starShip.name}}</td>
+        <td class="text-bold">Manufacturer</td>
+        <td>{{starShip.manufacturer}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Max atmosphering Speed</td>
+        <td>{{starShip.max_atmosphering_speed}}</td>
+        <td class="text-bold">Model</td>
+        <td>{{starShip.model}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Cargo capacity</td>
+        <td>{{starShip.cargo_capacity}}</td>
+        <td class="text-bold">Consumables</td>
+        <td>{{starShip.consumables}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Cost in Credits</td>
+        <td>{{starShip.cost_in_credits}}</td>
+        <td class="text-bold">MGLT</td>
+        <td>{{starShip.MGLT}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Crew</td>
+        <td>{{starShip.crew}}</td>
+        <td class="text-bold">HyperdriveRating</td>
+        <td>{{starShip.hyperdrive_rating}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Length</td>
+        <td>{{starShip.length}}</td>
+        <td class="text-bold">Passengers</td>
+        <td>{{starShip.passengers}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Starship Class</td>
+        <td>{{starShip.starship_class}}</td>
+        <td class="text-bold">Pilots</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="starShip.pilots?.length !== 0">
+            <span *ngFor="let pilot of starShip.pilots">{{pilot.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="starShip.pilots === null">
+            <span>No pilot Found!</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bold">Films</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="starShip.films?.length !== 0">
+            <span *ngFor="let film of starShip.films">{{film.title}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="starShip.films === null">
+            <span>No Films Found!</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="starShip === null">
+  <p>Loading...</p>
+</div>

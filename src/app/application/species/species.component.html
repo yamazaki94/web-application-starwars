@@ -1,0 +1,27 @@
+<div class="container" *ngIf="speciesList?.results">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Classification</th>
+        <th>Home World</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of speciesList.results">
+        <td>{{person.name}}</td>
+        <td>{{person.classification}}</td>
+        <td>{{person.homeworld === null ? 'Unknown' : person.homeworld}}</td>
+        <td><a [routerLink]="person.link">More Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="speciesList === null">
+  <p>Loading...</p>
+</div>
+<div class="container" *ngIf="speciesList !== null &&speciesList?.results === null">
+  <p>No Results Found!</p>
+</div>

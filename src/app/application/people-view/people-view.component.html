@@ -1,0 +1,73 @@
+<div class="container" *ngIf="person != null">
+  <table>
+    <tbody>
+      <tr>
+        <td class="text-bold">Name</td>
+        <td>{{person.name}}</td>
+        <td class="text-bold">Birth Year</td>
+        <td>{{person.birth_year}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Eye Color</td>
+        <td>{{person.eye_color}}</td>
+        <td class="text-bold">Gender</td>
+        <td>{{person.gender}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Skin Color</td>
+        <td>{{person.skin_color}}</td>
+        <td class="text-bold">Gender</td>
+        <td>{{person.gender}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Hair Color</td>
+        <td>{{person.hair_color}}</td>
+        <td class="text-bold">Height</td>
+        <td>{{person.height}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Home World</td>
+        <td>{{person.homeworld}}</td>
+        <td class="text-bold">Mass</td>
+        <td>{{person.mass}}</td>
+      </tr>
+      <tr>
+        <td class="text-bold">Films</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="person.films?.length !== 0">
+            <span *ngFor="let film of person.films">{{film.title}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="person.films === null">
+            <span>No Films Found!</span>
+          </div>
+        </td>
+        <td class="text-bold">starships</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="person.starships?.length !== 0">
+            <span *ngFor="let starship of person.starships">{{starship.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="person.starships === null">
+            <span>No Starships Found!</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bold">Vehicles</td>
+        <td>
+          <div class="d-flex flex-column" *ngIf="person.vehicles?.length !== 0">
+            <span *ngFor="let vehicle of person.vehicles">{{vehicle.name}}</span>
+          </div>
+          <div class="d-flex flex-column" *ngIf="person.vehicles === null">
+            <span>No Vehicles Found!</span>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container" *ngIf="person === null">
+  <p>Loading...</p>
+</div>
